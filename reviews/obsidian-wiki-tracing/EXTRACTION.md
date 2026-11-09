@@ -1,57 +1,43 @@
-# Source extraction — Obsidian Wiki tracing candidates
+# Tracing skills — source review and adaptation record
 
-**Summary:** The original `wiki-rebuild` skill is preserved verbatim; the other tracing candidates are summarized from the upstream instructions for future review, not installed or executed.
+**Summary:** This directory is a rewritten, OneShot-scoped **read-only review package**. It does not install the upstream Obsidian Wiki system or expose destructive wiki operations.
 
-## Provenance
+## Provenance (observed source facts)
 
-- Repository: https://github.com/Ar9av/obsidian-wiki
-- Inspected branch: `main`; reference commit: `acc0ac1769349c7550696724f564b0ca719e146c`
-- Extracted original: `skills/wiki-rebuild/SKILL.md`, Git blob `a83e15574aa176256464fd0f85ce0c421d108577`.
-- License: MIT; the copied `LICENSE` is the original license text.
-- Local source copy: [`wiki-rebuild-SKILL.md`](wiki-rebuild-SKILL.md), preserved byte-for-byte (Git blob verified).
-- Extraction is a *reference snapshot*, not a locally installed skill and not a command to rebuild anything.
+- Upstream repository: https://github.com/Ar9av/obsidian-wiki
+- Inspected upstream commit: `acc0ac1769349c7550696724f564b0ca719e146c`.
+- License: MIT, copyright (c) 2026 Ar9av; preserve [LICENSE](LICENSE).
+- Original `wiki-rebuild` skill: `skills/wiki-rebuild/SKILL.md`, Git blob `a83e15574aa176256464fd0f85ce0c421d108577`.
+- Other source files reviewed:
+  - `skills/session-search/SKILL.md` — Git blob `6621cbed9f29b5c4a2a55bfad84a92688ecf7d0f`.
+  - `skills/memory-bridge/SKILL.md` — Git blob `f1fb5f829a50974890030b2cddd643a1e81da2b2`.
+  - `skills/cross-linker/SKILL.md` — Git blob `a5ed6a7448e40f852ea1132ac4945d0fb3f57c5d`.
+  - `skills/llm-wiki/SKILL.md` — configuration and knowledge-store conventions.
 
-## Functionality extracted from source
-
-| Upstream skill | Source path | Actual purpose | OneShot relevance |
-|---|---|---|---|
-| `wiki-rebuild` | `skills/wiki-rebuild/SKILL.md` | Archive the current Obsidian wiki; clear and re-ingest source knowledge; or restore an archive. Destructive modes need confirmation and an archive. | Disaster recovery for a separately configured wiki, not source-code cleanup or execution tracing. |
-| `session-search` | `skills/session-search/SKILL.md` | Query a prebuilt session-brain graph, rank historical sessions, load bounded transcript excerpts, and cite session IDs. It distinguishes loadable transcripts from history-only matches. | Candidate for finding the original session behind a decision, if source history exists and is accessible. |
-| `memory-bridge` | `skills/memory-bridge/SKILL.md` | Browse, search, compare, or map compiled wiki pages by originating assistant/source tool using `.manifest.json`. | Candidate for identifying which tool produced a note and cross-tool knowledge gaps. Does not automatically copy model memory. |
-| `cross-linker` | `skills/cross-linker/SKILL.md` | Suggest/add Obsidian wikilinks and typed semantic relationships; distinguishes high, medium, and ambiguous linkage. Writes to the vault when invoked. | Candidate for linking related knowledge records; inferred connections are **not** primary-source proof of code execution. |
-
-Verified upstream Git blobs:
-
-- `session-search`: `6621cbed9f29b5c4a2a55bfad84a92688ecf7d0f`
-- `memory-bridge`: `f1fb5f829a50974890030b2cddd643a1e81da2b2`
-- `cross-linker`: `a5ed6a7448e40f852ea1132ac4945d0fb3f57c5d`
-
-Read the original, pinned sources in GitHub:
-
+Pinned originals:
+- https://github.com/Ar9av/obsidian-wiki/blob/acc0ac1769349c7550696724f564b0ca719e146c/skills/wiki-rebuild/SKILL.md
 - https://github.com/Ar9av/obsidian-wiki/blob/acc0ac1769349c7550696724f564b0ca719e146c/skills/session-search/SKILL.md
 - https://github.com/Ar9av/obsidian-wiki/blob/acc0ac1769349c7550696724f564b0ca719e146c/skills/memory-bridge/SKILL.md
 - https://github.com/Ar9av/obsidian-wiki/blob/acc0ac1769349c7550696724f564b0ca719e146c/skills/cross-linker/SKILL.md
-- https://github.com/Ar9av/obsidian-wiki/blob/acc0ac1769349c7550696724f564b0ca719e146c/skills/llm-wiki/SKILL.md
 
-## Original prerequisites and safeguards
+## Source behavior versus adaptation
 
-- `wiki-rebuild` depends on the configuration resolution protocol defined in `llm-wiki/SKILL.md`, `OBSIDIAN_VAULT_PATH`, and the wiki `.manifest.json`.
-- `session-search` assumes an existing session-brain graph; a result may not have a retrievable transcript.
-- `memory-bridge` assumes a populated wiki manifest and page-source provenance.
-- `cross-linker` may update Markdown content and links; it is **not read-only** when executed.
-- `wiki-rebuild` **must not** clear/restore a vault without explicit user confirmation. The source itself says re-ingest must be separately selected.
-- QMD is an optional search index, not the authoritative wiki. The original markdown content remains authoritative.
+| Upstream capability | Actual prerequisite/behavior | OneShot review-only interpretation |
+|---|---|---|
+| `wiki-rebuild` | Configured `OBSIDIAN_VAULT_PATH`; archive, clear/rebuild, or restore; requires user confirmation for destructive actions | Not carried forward as a runnable skill. Evaluate its recovery principles only if a wiki exists. |
+| `session-search` | Existing session-brain graph; `obsidian-wiki sessions-query`; transcript may be pruned | Evaluate whether existing OneShot sources can answer origin questions with exact identifiers. |
+| `memory-bridge` | Wiki `.manifest.json` and pages with source provenance | Evaluate original source attribution; avoid introducing a duplicate manifest without a justified gap. |
+| `cross-linker` | Obsidian page registry; may rewrite links and frontmatter | Evaluate **read-only** exact and inferred relationships; do not invoke its writer. |
 
-## OneShot interpretation (proposed, not implemented)
+## Differences from the previous push
 
-1. Keep OneShot Git, contracts, source hashes, task/event stores, and signed/verified Runtime receipts authoritative for execution history.
-2. Consider a *read-only projection* from actual records into a searchable knowledge index, rather than letting a wiki define Runtime truth.
-3. Link notes by known task/run/source/revision identities when available; never infer them from semantic similarity.
-4. Store only distinctive, supported lessons; find before creating and update instead of duplicating.
-5. Evaluate the skills with fixture conversations and known-source oracle labels before using them for automatic promotion.
+The previous review folder contained a verbatim copy named `wiki-rebuild-SKILL.md`. That raw copy was not rewritten to OneShot's scope and was unsuitable for publication as a proposed Cross-Agent skill. This revision **removes it from the active tree** and adds [TRACE-REVIEW.md](TRACE-REVIEW.md), an original read-only evaluation procedure. The pinned upstream original remains accessible via the links above and prior Git history.
 
-## Status
+The [question bank](QUESTIONS-FOR-LATER.md) is also rewritten to require an observable evidence answer rather than imply that OneShot has missing services or needs new storage.
 
-- Original `wiki-rebuild` file and MIT license **extracted and verified**.
-- Other three skills **reviewed and summarized**, with pinned upstream links; their raw files are **not included** in this bundle.
-- No installation, wiki mutation, repository change, background monitoring, or integrated execution test performed.
+## Current verification boundary
+
+- GitHub source contents and the Cross-AgentSkills repository layout were inspected.
+- The adaptation is an authored review protocol, **not** a verified implementation or approved OneShot contract.
+- No local OneShot checkout, bootstrap instructions, Runtime, logs, or live source history were available for integrated testing here.
+- No wiki command, session history ingestion, repository refactor, or destructive action is authorized by this directory.
