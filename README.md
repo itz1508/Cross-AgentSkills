@@ -1,50 +1,38 @@
 # Cross-AgentSkills
 
-Shared skill library for OneShot agents — video generation and UIX design.
+Reusable agent skills, UIX design, and video generation resources.
 
-## Skills
+All shared agent resources live under [`Agent/`](Agent/):
 
-| Skill | Path | Purpose |
+| Resource | Location | Scope |
 |---|---|---|
-| `video_generator` | `video_generator/` | 40+ AI video models via `belt` CLI (Veo 3.1, Seedance 2.0, HappyHorse, Wan, Grok, OmniHuman, Fabric). text-to-video, image-to-video, avatar, edit, upscale, foley |
-| `uix_designer` | `uix_designer/` | Unified UI/UX: `ui-ux-pro-max` (80 styles, 192 palettes, 74 font pairings, 120 UX guidelines) + `canvas-design` (philosophy→.pdf/.png) + `web-design-guidelines` (Vercel audit) — single owner per capability, no overlap |
+| Knowledge and tracing skills | [`Agent/skills/`](Agent/skills/README.md) | Session search, provenance, cross-linking, wiki recovery, and session handoff |
+| UIX designer | [`Agent/uix_designer/`](Agent/uix_designer/SKILL.md) | UI/UX design references, validation, data, and tools |
+| Video generator | [`Agent/video_generator/`](Agent/video_generator/SKILL.md) | Video generation, editing, avatar, foley, and related tools |
 
-## Knowledge and tracing skills
+## Skill entry points
 
-Four individually scoped instruction skills are available under [`skills/`](skills/README.md): [`wiki-build`](skills/wiki-build/SKILL.md), [`session-search`](skills/session-search/SKILL.md), [`memory-bridge`](skills/memory-bridge/SKILL.md), and [`cross-linker`](skills/cross-linker/SKILL.md).
+- [Handoff](Agent/skills/handoff/SKILL.md) — durable session continuity. Its [dated BreakDown example](Agent/skills/handoff/CURRENT_HANDOFF.md) is historical, not the current state of this repository.
+- [Wiki build](Agent/skills/wiki-build/SKILL.md) — safe existing-wiki recovery.
+- [Session search](Agent/skills/session-search/SKILL.md) — source-bounded session retrieval.
+- [Memory bridge](Agent/skills/memory-bridge/SKILL.md) — provenance comparison.
+- [Cross-linker](Agent/skills/cross-linker/SKILL.md) — evidence-backed knowledge links.
 
-These are agent-instruction skills and **not** Python V2/R01 runtime packages. They do not create Runtime events, approval receipts, or additional storage. See [the evaluation questions](skills/QUESTIONS-FOR-LATER.md) before any integration.
+## Distribution versus installed paths
 
-## Structure (same as `breakdown/agent/skills/`)
+This repository organizes resources under `Agent/`. A consuming OneShot/BreakDown project may install a package under its own `agent/skills/`, if that project's bootstrap and contracts authorize it. **Renaming repository paths does not install an adapter or verify Runtime compatibility.**
 
-Executable Python packages (`uix_designer` and `video_generator`) follow the V2/R01 rule:
-```
-<skill>/
- ├─ __init__.py, run.py (from __future__ top, pre/post_dispatch), SKILL.md
- ├─ tools/     # permitted ops (belt calls, search, canvas, web fetch)
- ├─ checks/    # validation (prompt, duration, guideline)
- └─ references/# docs, data, fonts (e.g., ui-ux-data/, canvas-fonts/)
-```
-
-See `uix_designer/references/overlap-map.md` for overlap resolution.
-
-## Usage
+The UIX and video Python packages are moved without changing their contents; their existing docs show target-project commands such as:
 
 ```bash
-# Video generation
-belt login
-belt app run google/veo-3-1-fast --input '{"prompt":"drone over forest"}'
-uv run python -m agent.skills.video_generator.run D:/breakdown
-
-# UIX design
-uv run python agent/skills/uix_designer/tools/search.py "keyboard focus modal" --domain ux --design-system -p "MyApp"
+uv run --no-sync python -m agent.skills.uix_designer.run <repository-root>
+uv run --no-sync python -m agent.skills.video_generator.run <repository-root>
 ```
 
-## Verification
+Those commands require the consumer project's `agent.skills` Python package and contracts; they are **not** standalone launch commands from this repository root. Data, fonts, and references remain inside their respective packages.
 
-- `ruff check`, `mypy` pass (tools excluded for strict)
-- `gap_analysis --repo .` → `valid` in source `breakdown` (source_id `b643176`)
+## Ownership and validation
 
-## Source
+Knowledge/tracing/handoff documents do not grant Runtime authorization, source access, approval receipts, or E2E evidence. See [knowledge evaluation questions](Agent/skills/QUESTIONS-FOR-LATER.md) and [source attributions](Agent/skills/SOURCES.md).
 
-Built from `D:/breakdown` R01 + gap fixes, extracted 2026-11-08.
+This reorganization retains existing UIX/video byte content and moves resource paths. No connected OneShot/BreakDown build or hosted inference E2E is asserted.
