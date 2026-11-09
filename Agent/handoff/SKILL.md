@@ -12,7 +12,7 @@ version: 2.0.0
 
 Use when the user asks to hand off, resume, preserve session history, transfer context, or prepare a new chat/agent. This skill records context; it does **not** approve plans, perform builds, modify application source, or certify test results.
 
-**Distribution path:** `Agent/skills/handoff/` in Multi_Skills. **Installed path:** `agent/skills/handoff/` in the target project. Work inside the *current verified checkout*, not an assumed Windows path. If the checkout is unavailable, produce a staged package and report that it has **not been installed in the target repository**.
+**Distribution path:** `Agent/handoff/` in Multi_Skills. **Installed path:** `agent/skills/handoff/` in the target project. Work inside the *current verified checkout*, not an assumed Windows path. If the checkout is unavailable, produce a staged package and report that it has **not been installed in the target repository**.
 
 ## 01. Discover before writing
 
@@ -70,3 +70,7 @@ A fresh agent can identify (1) the current task, (2) what may be changed, (3) wh
 ## Origin
 
 Rewritten from the `handoff` concept in https://github.com/mattpocock/skills; adapted for source-grounded OneShot/BreakDown continuity. Not a claim of compatibility testing with upstream CLI.
+
+## Reusable Audit Discovery
+
+For read-only evidence inventory, ownership/overlap checks and candidate CodeIntent, use the [Audit Discovery requirements matrix](../AUDIT_DISCOVERY_REQUIREMENTS.md). Do not execute this skill's write operations from Audit Discovery.

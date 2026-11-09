@@ -44,4 +44,8 @@ A bounded table of source ID, candidate target ID, relationship, observed/inferr
 
 A relationship is not an independent test result, Build Admission, authorization, or trusted approval. The original record and its owning stage remain authoritative. No automatic memory writes or graph persistence without an accepted plan.
 
-Related: [session-search](../session-search/SKILL.md) for locating original statements; [memory-bridge](../memory-bridge/SKILL.md) for cross-tool provenance; [provenance](../SOURCES.md).
+Related: [session-search](../session-search/SKILL.md) for locating original statements; [memory-bridge](../memory-bridge/SKILL.md) for cross-tool provenance; [provenance](../skills/SOURCES.md).
+
+## Reusable Audit Discovery
+
+For read-only evidence inventory, ownership/overlap checks and candidate CodeIntent, use the [Audit Discovery requirements matrix](../AUDIT_DISCOVERY_REQUIREMENTS.md). Do not execute this skill's write operations from Audit Discovery.
