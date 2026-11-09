@@ -58,4 +58,4 @@ Q30. What measured improvement over existing search and logs would justify adopt
 
 Inspect the target repository and its actual bootstrap instructions before any tool execution. Build an evidence inventory before design proposals. Use read-only probes and labeled matched fixtures. Report observed results and unresolved gaps, separating facts, hypotheses, and proposed changes. Do not install or run `wiki-rebuild`, change Runtime contracts, create competing memory storage, infer approvals, or claim E2E validation without actual execution.
 
-See [TRACE-REVIEW.md](TRACE-REVIEW.md) for the review boundary and [EXTRACTION.md](EXTRACTION.md) for pinned upstream sources.
+Skills: [wiki-build](wiki-build/SKILL.md), [session-search](session-search/SKILL.md), [memory-bridge](memory-bridge/SKILL.md), and [cross-linker](cross-linker/SKILL.md). See [SOURCES.md](SOURCES.md) for pinned upstream provenance.

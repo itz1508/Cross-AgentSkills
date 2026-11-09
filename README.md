@@ -9,9 +9,15 @@ Shared skill library for OneShot agents — video generation and UIX design.
 | `video_generator` | `video_generator/` | 40+ AI video models via `belt` CLI (Veo 3.1, Seedance 2.0, HappyHorse, Wan, Grok, OmniHuman, Fabric). text-to-video, image-to-video, avatar, edit, upscale, foley |
 | `uix_designer` | `uix_designer/` | Unified UI/UX: `ui-ux-pro-max` (80 styles, 192 palettes, 74 font pairings, 120 UX guidelines) + `canvas-design` (philosophy→.pdf/.png) + `web-design-guidelines` (Vercel audit) — single owner per capability, no overlap |
 
+## Knowledge and tracing skills
+
+Four individually scoped instruction skills are available under [`skills/`](skills/README.md): [`wiki-build`](skills/wiki-build/SKILL.md), [`session-search`](skills/session-search/SKILL.md), [`memory-bridge`](skills/memory-bridge/SKILL.md), and [`cross-linker`](skills/cross-linker/SKILL.md).
+
+These are agent-instruction skills and **not** Python V2/R01 runtime packages. They do not create Runtime events, approval receipts, or additional storage. See [the evaluation questions](skills/QUESTIONS-FOR-LATER.md) before any integration.
+
 ## Structure (same as `breakdown/agent/skills/`)
 
-Each skill follows V2/R01 rule:
+Executable Python packages (`uix_designer` and `video_generator`) follow the V2/R01 rule:
 ```
 <skill>/
  ├─ __init__.py, run.py (from __future__ top, pre/post_dispatch), SKILL.md
