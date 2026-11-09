@@ -36,3 +36,9 @@ Those commands require the consumer project's `agent.skills` Python package and 
 Knowledge/tracing/handoff documents do not grant Runtime authorization, source access, approval receipts, or E2E evidence. See [knowledge evaluation questions](Agent/skills/QUESTIONS-FOR-LATER.md) and [source attributions](Agent/skills/SOURCES.md).
 
 This reorganization retains existing UIX/video byte content and moves resource paths. No connected OneShot/BreakDown build or hosted inference E2E is asserted.
+
+## BreakDown stage skills
+
+Current BreakDown stage skills are distributed under [`Agent/skills/`](Agent/skills/README.md): Audit Discovery, Research, Planning, Builder, and CodeDesign review. An additional [Executor/Sandbox](Agent/skills/executor/SKILL.md) snapshot comes from an **unmerged draft branch**. See [pinned source revisions](Agent/skills/SOURCES.md).
+
+These are source copies, not installed or independently validated Runtime roles. The existing handoff, wiki/tracing, UIX, and video resources remain in place.
