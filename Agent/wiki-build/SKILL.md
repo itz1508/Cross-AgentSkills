@@ -68,8 +68,4 @@ Report mode, exact target, archival identifiers, source inventory, mutation scop
 - QMD or another search index is *derived* data. An index refresh failure must not be represented as source loss.
 - Prefer bounded, idempotent, approved changes; keep append-only correction history where the underlying store supports it.
 
-Related capabilities: [session-search](../session-search/SKILL.md) retrieves history; [memory-bridge](../memory-bridge/SKILL.md) compares origins; [cross-linker](../cross-linker/SKILL.md) proposes relationships. [Provenance](../skills/SOURCES.md).
-
-## Reusable Audit Discovery
-
-For read-only evidence inventory, ownership/overlap checks and candidate CodeIntent, use the [Audit Discovery requirements matrix](../AUDIT_DISCOVERY_REQUIREMENTS.md). Do not execute this skill's write operations from Audit Discovery.
+Related capabilities: [session-search](../session-search/SKILL.md) retrieves history; [memory-bridge](../memory-bridge/SKILL.md) compares origins; [cross-linker](../cross-linker/SKILL.md) proposes relationships. [Provenance](../SOURCES.md).

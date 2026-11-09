@@ -10,10 +10,10 @@ License: MIT, Copyright (c) 2026 Ar9av. See [LICENSE-AR9AV.txt](LICENSE-AR9AV.tx
 
 | Adapted skill | Upstream source | Upstream Git blob |
 |---|---|---|
-| [wiki-build](../wiki-build/SKILL.md) | `skills/wiki-rebuild/SKILL.md` | `a83e15574aa176256464fd0f85ce0c421d108577` |
-| [session-search](../session-search/SKILL.md) | `skills/session-search/SKILL.md` | `6621cbed9f29b5c4a2a55bfad84a92688ecf7d0f` |
-| [memory-bridge](../memory-bridge/SKILL.md) | `skills/memory-bridge/SKILL.md` | `f1fb5f829a50974890030b2cddd643a1e81da2b2` |
-| [cross-linker](../cross-linker/SKILL.md) | `skills/cross-linker/SKILL.md` | `a5ed6a7448e40f852ea1132ac4945d0fb3f57c5d` |
+| [wiki-build](wiki-build/SKILL.md) | `skills/wiki-rebuild/SKILL.md` | `a83e15574aa176256464fd0f85ce0c421d108577` |
+| [session-search](session-search/SKILL.md) | `skills/session-search/SKILL.md` | `6621cbed9f29b5c4a2a55bfad84a92688ecf7d0f` |
+| [memory-bridge](memory-bridge/SKILL.md) | `skills/memory-bridge/SKILL.md` | `f1fb5f829a50974890030b2cddd643a1e81da2b2` |
+| [cross-linker](cross-linker/SKILL.md) | `skills/cross-linker/SKILL.md` | `a5ed6a7448e40f852ea1132ac4945d0fb3f57c5d` |
 
 Also consulted: `skills/llm-wiki/SKILL.md` for original vault configuration and source-vs-index responsibilities.
 
@@ -30,18 +30,3 @@ Also consulted: `skills/llm-wiki/SKILL.md` for original vault configuration and 
 The skills preserve their core concepts but are **adaptations**, not verbatim upstream copies. The pinned originals remain available under the corresponding source URLs. The text is reviewed for structural consistency; correct operation against a live OneShot repository, session store, or Obsidian vault is **not tested**.
 
 These instructions do not authorize a new storage schema or change acceptance gates. Any executable adapter would require repository discovery, a Planner-owned implementation proposal, admission, and actual validation.
-
-## BreakDown distribution transfer (2026-11-09)
-
-**Scope:** Copy-only transfer into `Agent/skills/` in `itz1508/Multi_Skills`; no changes made to the producing repository or `itz1508/OneShot`.
-
-| Source revision | Source paths | Target paths | Count |
-|---|---|---|---|
-| `itz1508/BreakDown` main `82979152109dff2b4424d222f38a442a307531ea` | `agent/skills/**` | `Agent/skills/**` | 32 files |
-| `itz1508/BreakDown` draft `ffbac6593ae148cf7d5d219b6f558605ed612712` | `agent/skills/executor/**` | `Agent/skills/executor/**` | 31 files |
-
-The `draft` Executor came from an unmerged branch; its standalone tests and documentation do not establish integrated Host admission or production E2E. Old alternate implementations on the separate `BreakDown/breakdown` history were **not** mixed into the canonical role copies because they overlap current responsibilities and require an independent reconciliation decision. Existing handoff/wiki/tracing packages and `Agent/uix_designer` and `Agent/video_generator` were preserved.
-
-Source Git blob identities for every imported file were compared to the destination tree before publishing. Distribution itself is not a runtime or compatibility test.
-
-**Current Multi_Skills organization:** The five instruction-only continuity skills are now directly under `Agent/`; the pinned BreakDown stage snapshots and their copied files remain under `Agent/skills/`. Both source revision assertions above refer to the time of import and do not certify live integration.

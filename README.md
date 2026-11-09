@@ -1,30 +1,21 @@
-# Cross-AgentSkills
+# Multi_Skills
 
-Reusable agent instruction skills, BreakDown role distribution snapshots, and separate UIX/video resources.
+A collection of **standalone reusable agent skills**, not a repository of workflow stages or application/runtime integrations.
 
-The five knowledge/continuity skills live **directly under [Agent/](Agent/README.md)**:
+All seven skill packages are under [`Agent/`](Agent/README.md):
 
-| Skill | Path | Responsibility |
-|---|---|---|
-| Handoff | [Agent/handoff/](Agent/handoff/SKILL.md) | Session continuity |
-| Session search | [Agent/session-search/](Agent/session-search/SKILL.md) | Historical source retrieval |
-| Memory bridge | [Agent/memory-bridge/](Agent/memory-bridge/SKILL.md) | Knowledge provenance |
-| Cross linker | [Agent/cross-linker/](Agent/cross-linker/SKILL.md) | Relationship analysis |
-| Wiki build | [Agent/wiki-build/](Agent/wiki-build/SKILL.md) | Existing wiki/index recovery |
+| Skill | Description |
+|---|---|
+| [handoff](Agent/handoff/SKILL.md) | Transfer session context into an evidence-grounded, portable handoff |
+| [cross-linker](Agent/cross-linker/SKILL.md) | Identify and classify relationships across existing records |
+| [memory-bridge](Agent/memory-bridge/SKILL.md) | Compare memory and knowledge provenance |
+| [session-search](Agent/session-search/SKILL.md) | Retrieve previous decisions from existing authorized sources |
+| [wiki-build](Agent/wiki-build/SKILL.md) | Inspect and safely recover an existing wiki or knowledge index |
+| [uix_designer](Agent/uix_designer/SKILL.md) | UI/UX design resources, tools, checks, and references |
+| [video_generator](Agent/video_generator/SKILL.md) | Video production resources, tools, checks, and references |
 
-**Reusable read-only requirement list:** [Audit Discovery matrix](Agent/AUDIT_DISCOVERY_REQUIREMENTS.md). This documents the skills' independent ownership, shared evidence rules, source probes, missing/duplicate capabilities, and candidate CodeIntent. It does not create a duplicate Auditor or execute fixes.
+**Boundary:** These skills are distributed independently; no Audit Discovery matrix, Research/Planning/Builder workflow role, Executor/Sandbox runtime package, or project-specific stage orchestration is included.
 
-Additional resources remain in their existing scopes:
+Source attributions and license notices are retained at [`Agent/SOURCES.md`](Agent/SOURCES.md) and [`Agent/LICENSE-AR9AV.txt`](Agent/LICENSE-AR9AV.txt). The handoff's historical example is not live project state.
 
-- [BreakDown role skill snapshots](Agent/skills/README.md): Auditor, Researcher, Planner, Builder, CodeDesign and draft Executor. These are pinned source copies, **not** a completed Runtime integration.
-- [UIX designer](Agent/uix_designer/SKILL.md): Python tools, checks, datasets, fonts and references.
-- [Video generator](Agent/video_generator/SKILL.md): Python tools, checks and production references.
-- [Upstream sources and licenses](Agent/skills/SOURCES.md) and [earlier evaluation questions](Agent/skills/QUESTIONS-FOR-LATER.md).
-
-## Use in another repository
-
-The shared distribution tree is not necessarily a Python import root. Consumers must inspect their own bootstrap, `AGENTS.md`, contracts and access restrictions before copying or installing resources.
-
-In BreakDown, package examples reference `agent.skills.*`; these require the actual target repository and authorized Host-dispatch/Runtime contracts. Moving folders here does not authorize execution, build admission, or test receipts.
-
-No connected OneShot/BreakDown E2E verification is claimed by this reference repository.
+Using a skill inside another repository requires that repository's own bootstrap and authorization checks. This source library does not claim executable Runtime or E2E integration.

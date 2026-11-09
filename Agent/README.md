@@ -1,27 +1,25 @@
-# Agent skills and resources
+# Standalone agent skills
 
-> Summary: Five independent knowledge/continuity skills, UIX and video packages, one shared Audit Discovery requirement matrix, and retained reference documents.
+> Summary: Independent reusable skill packages. No workflow stages, project orchestration, host adapters, or Build/Audit/Planning runtime integrations are distributed here.
 
-## Instruction skills
+## Skills
 
-| Owner | Entry point | Responsibility |
+| Standalone skill | Entry point | Purpose |
 |---|---|---|
-| Handoff | [handoff/SKILL.md](handoff/SKILL.md) | Resume/task-state context |
-| Session search | [session-search/SKILL.md](session-search/SKILL.md) | Original session retrieval |
-| Memory bridge | [memory-bridge/SKILL.md](memory-bridge/SKILL.md) | Cross-source provenance |
-| Cross linker | [cross-linker/SKILL.md](cross-linker/SKILL.md) | Relationship candidates |
-| Wiki build | [wiki-build/SKILL.md](wiki-build/SKILL.md) | Existing knowledge index recovery |
+| Handoff | [handoff/SKILL.md](handoff/SKILL.md) | Prepare and resume a bounded session handoff |
+| Cross Linker | [cross-linker/SKILL.md](cross-linker/SKILL.md) | Identify evidence-backed links and duplicate references |
+| Memory Bridge | [memory-bridge/SKILL.md](memory-bridge/SKILL.md) | Compare provenance of existing records |
+| Session Search | [session-search/SKILL.md](session-search/SKILL.md) | Retrieve original sessions and bounded source excerpts |
+| Wiki Build | [wiki-build/SKILL.md](wiki-build/SKILL.md) | Inspect or explicitly authorized recovery of an existing knowledge store |
+| UIX Designer | [uix_designer/SKILL.md](uix_designer/SKILL.md) | Independent UI/UX design reference data and tools |
+| Video Generator | [video_generator/SKILL.md](video_generator/SKILL.md) | Video generation and editing resources |
 
-Use [AUDIT_DISCOVERY_REQUIREMENTS.md](AUDIT_DISCOVERY_REQUIREMENTS.md) to inspect these capabilities **without implementing them**. The matrix distinguishes shared prerequisites, skill-specific requirements, overlap boundaries, read-only findings, and possible negative fixtures.
+## Boundaries
 
-## Other resources
+- Every skill has its own purpose and supporting files. None establishes a new workflow stage or grants approval, source-write, or Runtime privileges.
+- Existing UIX and video Python source files are preserved as distributed. They reference dependencies from their consuming project; this repository does not independently install or verify those dependencies.
+- The dated [handoff example](handoff/CURRENT_HANDOFF.md) is historical context, not the current state of any target repository.
+- Before invoking a skill, inspect the actual target project's instructions, source, access permissions, and dependencies.
+- The four wiki/tracing skills adapt upstream materials; see [source attribution](SOURCES.md) and [license](LICENSE-AR9AV.txt). Handoff records its source in its own SKILL.md.
 
-- [uix_designer](uix_designer/SKILL.md) — independent UIX Python package and references.
-- [video_generator](video_generator/SKILL.md) — independent video Python package and references.
-- [skills/SOURCES.md](skills/SOURCES.md) — adapted skills' original sources, licenses and provenance.
-- [skills/QUESTIONS-FOR-LATER.md](skills/QUESTIONS-FOR-LATER.md) — earlier 30-question evaluation inventory.
-- [handoff/CURRENT_HANDOFF.md](handoff/CURRENT_HANDOFF.md) — dated historical example, **not** live project authority.
-
-Additional stage-skill distribution snapshots remain under [skills/](skills/README.md): Auditor, Researcher, Planner, Builder, and draft Executor. Their runtime modules and evidence are preserved byte-for-byte; no role reinstallation is implied.
-
-These Markdown skills confer no Host permissions, no build admission, and no Runtime receipts. Verify actual source and permissions in the consuming repository before installation.
+Project workflow roles and Audit Discovery/Planner/Builder/Executor implementations belong in the *owning project*, not this standalone skill library.

@@ -41,8 +41,4 @@ Use labeled fixtures with near-identical project names, renamed files, repeated 
 - Session text is historical evidence of a statement, **not** evidence that a command ran or a test passed unless independent execution evidence supports it.
 - If the session index needs reconstruction, refer to [wiki-build](../wiki-build/SKILL.md) only when that index is part of an actual managed wiki; do not invoke a destructive operation automatically.
 
-Related: [memory-bridge](../memory-bridge/SKILL.md) for origin comparisons, [provenance](../skills/SOURCES.md).
-
-## Reusable Audit Discovery
-
-For read-only evidence inventory, ownership/overlap checks and candidate CodeIntent, use the [Audit Discovery requirements matrix](../AUDIT_DISCOVERY_REQUIREMENTS.md). Do not execute this skill's write operations from Audit Discovery.
+Related: [memory-bridge](../memory-bridge/SKILL.md) for origin comparisons, [provenance](../SOURCES.md).

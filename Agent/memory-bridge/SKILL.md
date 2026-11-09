@@ -44,8 +44,4 @@ Use matched, independently labeled fixtures: shared secondary summary, genuinely
 
 Only existing knowledge sources are compared. No cross-agent broadcast, session ingestion, user-data export, or Runtime mutation is authorized. Use [session-search](../session-search/SKILL.md) to locate original messages and [cross-linker](../cross-linker/SKILL.md) to analyze relationships.
 
-[Provenance](../skills/SOURCES.md).
-
-## Reusable Audit Discovery
-
-For read-only evidence inventory, ownership/overlap checks and candidate CodeIntent, use the [Audit Discovery requirements matrix](../AUDIT_DISCOVERY_REQUIREMENTS.md). Do not execute this skill's write operations from Audit Discovery.
+[Provenance](../SOURCES.md).

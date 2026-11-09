@@ -1,1 +1,0 @@
-"""Evidence-producing Researcher role."""
